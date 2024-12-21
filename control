@@ -1,0 +1,9 @@
+Package: c.ghh.hardwareMedia
+Name: VolumeController
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Control your media using hardware buttons! Also some extra unfinished yet features you will see:)
+Maintainer: Ghh
+Author: Ghh
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
