@@ -28,3 +28,7 @@
 -(float)volumeStepDown;
 -(float)volumeStepUp;
 @end
+
+@interface _UIKeyboardFeedbackGenerator : UIFeedbackGenerator
+@property (nonatomic, retain) UIImpactFeedbackGenerator *gen;
+@end
