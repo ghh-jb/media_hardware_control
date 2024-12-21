@@ -59,7 +59,11 @@
 
 
 -(void)_playFeedbackForActionType:(long long)arg1 withCustomization:(id)arg2 {
-	AudioServicesPlaySystemSound(1519);
+	if(!self.gen){
+		self.gen = [[UIImpactFeedbackGenerator alloc] init]; // prevent gen to be allocated every time you press a button
+	}
+	[self.gen prepare];
+	self.gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleRigid];
 	%orig;
 }
 
