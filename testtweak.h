@@ -30,5 +30,5 @@
 @end
 
 @interface _UIKeyboardFeedbackGenerator : UIFeedbackGenerator
-@property (nonatomic, retain) UIImpactFeedbackGenerator *gen;
+@property (nonatomic, retain) UIImpactFeedbackGenerator *vibrate;
 @end

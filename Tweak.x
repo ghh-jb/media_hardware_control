@@ -44,6 +44,8 @@
 // %end
 
 %hook _UIKeyboardFeedbackGenerator
+%property (nonatomic, retain) UIImpactFeedbackGenerator *vibrate;
+
 /*
 +(BOOL)areKeyHapticsEnabled {
 	NSLog(@"[PR] areKeyhapticsEnabled");
@@ -59,12 +61,14 @@
 
 
 -(void)_playFeedbackForActionType:(long long)arg1 withCustomization:(id)arg2 {
-	if(!self.gen){
-		self.gen = [[UIImpactFeedbackGenerator alloc] init]; // prevent gen to be allocated every time you press a button
-	}
-	[self.gen prepare];
-	self.gen = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleRigid];
 	%orig;
+	if (!self.vibrate) {
+			self.vibrate = [[UIImpactFeedbackGenerator alloc] init]; // prevent vibrate to be allocated every time you press a button
+	}
+	[self.vibrate prepare];
+	self.vibrate = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleRigid];
+	[self.vibrate impactOccurred];
+
 }
 
 %end
