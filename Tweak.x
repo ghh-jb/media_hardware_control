@@ -23,13 +23,16 @@
 
 	if (volUp && volDown) {
 		[[%c(SBMediaController) sharedInstance] togglePlayPauseForEventSource:0];
+		AudioServicesPlaySystemSound(1519);
+
 	} else if (shutdown && volDown) {
 		[[%c(SBMediaController) sharedInstance] changeTrack:-1 eventSource:0];
 		[[%c(SBVolumeControl) sharedInstance] volumeStepUp]; // so vol wont change
-
+		AudioServicesPlaySystemSound(1519);
 	} else if (shutdown && volUp) {
 		[[%c(SBMediaController) sharedInstance] changeTrack:1 eventSource:0];
 		[[%c(SBVolumeControl) sharedInstance] volumeStepDown]; // so vol wont change
+		AudioServicesPlaySystemSound(1519);
 	}
 
 	return %orig;
