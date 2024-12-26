@@ -11,3 +11,5 @@ testtweak_FILES = Tweak.x
 testtweak_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += mediahardwareprefs
+include $(THEOS_MAKE_PATH)/aggregate.mk

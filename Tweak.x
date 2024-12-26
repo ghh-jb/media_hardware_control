@@ -10,7 +10,7 @@
 	UIPress *shutdown = nil;
 
 	for (UIPress *press in [[event allPresses] allObjects]) {
-		NSLog(@"[PR] Type: %ld Force: %f", press.type, press.force);
+		// NSLog(@"[PR] Type: %ld Force: %f", press.type, press.force);
 
 		if (press.type == 102 && press.force == 1) { // volume up
 			volUp = press;
@@ -65,6 +65,7 @@
 
 -(void)_playFeedbackForActionType:(long long)arg1 withCustomization:(id)arg2 {
 	%orig;
+	NSLog(@"[KEY] arg1 %lld withCustom %@", arg1, arg2);
 	if (!self.vibrate) {
 			self.vibrate = [[UIImpactFeedbackGenerator alloc] init]; // prevent vibrate to be allocated every time you press a button
 	}
